@@ -1,0 +1,41 @@
+# Each node in the frontier is (person_id, path)
+# path is a list of (movie_id, person_id) pairs
+frontier = deque()
+frontier.append((source, []))
+explored = set()
+
+while frontier:
+    current_person, path = frontier.popleft()
+    explored.add(current_person)
+
+    for movie_id, neighbor in neighbors_for_person(current_person):
+        if neighbor in explored:
+            continue
+        new_path = path + [(movie_id, neighbor)]
+        if neighbor == target:
+            return new_path
+        frontier.append((neighbor, new_path))
+        explored.add(neighbor)
+
+return None
+
+
+
+stack = StackFrontier()
+    stack.add(source)
+    exploredSet = set()
+
+    while target not in stack.frontier:
+        path = list()
+        if stack.frontier[0] in exploredSet:
+            continue
+        # neighbors é um set de tuplas (movie_id, person_id)
+        for movie_id, neighbor in neighbors_for_person(stack.frontier[0]):
+            stack.add(neighbor)
+            if neighbor == target:
+                path.append((movie_id, neighbor))
+                return path
+            else:
+                stack.remove()
+
+    return None
