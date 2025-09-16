@@ -10,6 +10,8 @@ This is a repository to store some python projects that I made to pratice some f
 Puzzle to find out who is Knight and who is Knave. Implement Propositional Logic with proposition symbols and logical connectives
 #### minesweeper:
 Implements Inference algorithms
+#### pagerank:
+Implements the PageRank algorithm, both iterate and sample
 #### tic-tac-toe:
 Implements the Minimax algorithm
   
